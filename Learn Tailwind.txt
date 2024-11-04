@@ -1,2 +1,86 @@
 ################### TAILWIND #####################
 
+Tailwind css provide us with already css written, It provide as with already written classes that we can directly use in any project like HTML, REACT, NEXT.JS etc. So we do not have to waste time writing css from scratch as tailwind classes already have all the css we need for a project.  
+
+1. In tailwind css there is a imp file called "tailwind.config.js" which is a configuration file that help us to customize our own tailwind css setup for our project. It help us to override tailwind's default theme like colors, spacing, font-family, breakpoints etc. 
+
+IT LOOKS SOMETHING LIKE THIS ::
+
+{
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+      },
+    },
+  },
+  plugins: [],
+};
+
+(a). content => The content array specifies which files Tailwind should scan to identify the classes used in your project. By identifying these files, Tailwind removes unused styles (purges) from the final CSS, reducing file size and improving load times.
+
+  Each entry represents a path pattern. For instance::
+
+    ./pages/**/*.{js,ts,jsx,tsx,mdx}: Includes all .js, .ts, .jsx, .tsx, and .mdx files in the pages directory and its subdirectories.
+
+    ./components/**/*.{js,ts,jsx,tsx,mdx}: Includes files in the components directory and its subdirectories.
+
+    ./app/**/*.{js,ts,jsx,tsx,mdx}: Includes files in the app directory (relevant for Next.js’s App Router structure).
+
+(b). theme => This section defines the theme customization. By default, Tailwind comes with a range of design tokens (colors, fonts, spacing, etc.), which you can modify or extend. The "extend" object allows you to add new values or modify existing ones without completely overwriting Tailwind's defaults. 
+
+In above configuration, two custom colors are being defined: "background" and "foreground" which we can directly use in tailwind css classes like "text-foreground" and "bg-background". But we have to mention the color in css variable for --background and --foreground somewhere in our project like in globals.css file. EX :: 
+
+ :root {
+  --background: #ffffff;
+  --foreground: #171717;
+ }
+
+(c). plugins => This array is where you can add plugins to extend Tailwind's functionality. In this case, it's empty, meaning no additional plugins are being used.
+
+2. In globals.css we have mention some tailwind directives ::
+ 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+This directives are important to make tailwind work in our project. As they provide as tailwind css classes like bg-primary, pt-2, text-center etc.  
+
+@@@@@@@@@@@ NOTE:: FOR BETTER DEVELOPMENT EXPERPERINCE WITH TAILWIND USE EXTENSION "Tailwind CSS IntelliSense" ( It provides tailwind css class autocomplete, syntax highlighting, and linting. )
+
+
+############ CORE CONCEPT IN TAILWIND ####################
+
+1. Utilities classes => It is the classes provided by tailwind with pre existing css defined for them so we can directly use them in our project instead of writing css for design from scratch just use these classes and css will be applied on them. EX flex, shrink-0, p-6 etc. 
+
+Well we can also use inline-style instead of utility classes but tailwind has advantages over inline style ::
+
+ (a). Using inline styles, every value is a magic number. With utilities, you’re choosing styles from a predefined design system, which makes it much easier to build visually consistent UIs.
+
+ (b).  You can’t use media queries in inline styles, but you can use Tailwind’s responsive utilities to build fully responsive interfaces easily. EX sm, md, lg, xl , 2xl.
+
+ (c). Inline styles can’t target states like hover or focus, but Tailwind’s state variants make it easy to style those states with utility classes. hover, focus, active, after, before, selection etc.
+
+ (d). Tailwind makes it easy to enable dark mode in our application, by using "dark:" variant that lets you style your site differently when dark mode is enabled.
+
+ (e). Use of "@apply" directive. Let say we want to create a custom button style that you use throughout your application. Instead of repeating the utility classes in your HTML every time, we could do ::
+
+ .btn-primary {
+  @apply bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700;
+ }
+
+ The @apply directive lets you use Tailwind’s utility classes inside custom CSS selectors. This is particularly useful when creating reusable classes or overriding specific styles without repeating a lot of utility classes.
+  
+
+ TO LEARN MORE GO TO "https://tailwindcss.com/docs/adding-custom-styles"
+
+
+2. Colors => Tailwind provide us with default color palette out-of-the-box that is a great starting point if you don’t have your own specific branding in mind. These colors will be made available everywhere in the framework where you use colors, like the text color utilities, border color utilities, background color utilities, and more. 
+
+3. Customization => 
