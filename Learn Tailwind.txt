@@ -83,4 +83,18 @@ Well we can also use inline-style instead of utility classes but tailwind has ad
 
 2. Colors => Tailwind provide us with default color palette out-of-the-box that is a great starting point if you don’t have your own specific branding in mind. These colors will be made available everywhere in the framework where you use colors, like the text color utilities, border color utilities, background color utilities, and more. 
 
-3. Customization => 
+3. Customization => It means changing the default values of tailwind css like color pallet available, marging, padding, border size, screen size etc as per project theme. By default, Tailwind will look for an optional tailwind.config.js file at the root of your project where you can define any customizations.
+
+Every section of the config file is optional, so you only have to specify what you’d like to change. Any missing sections will fall back to Tailwind’s default configuration
+
+The most imp section is the theme section is where you define your color palette, fonts, type scale, border sizes, breakpoints — anything related to the visual design of your site.
+
+TO LEARN MORE GO TO "https://tailwindcss.com/docs/configuration"
+
+
+4. TYPOGRAPHY => It refers to font-family, font-size, font-boldness, color, align etc, Which we can use directly by utility classes of tailwind. 
+
+5. SPACES & SIZES => It is related to px value of variour css properties like "padding", "margin", "width", "minWidth", "maxWidth", "height", "minHeight", "maxHeight", "gap", "inset", "space", "translate", "scrollMargin", and "scrollPadding"
+
+
+

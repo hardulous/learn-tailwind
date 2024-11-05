@@ -15,6 +15,12 @@ module.exports = {
         foreground: "var(--foreground)",
         aman: "#28544d",   // New color aman is available to me
       },
+      fontSize:{
+        "amu": "14px"
+      },
+      fontFamily:{
+        'display': ['Oswald']
+      }
     },
   },
   plugins: [],
